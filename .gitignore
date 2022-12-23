@@ -1,0 +1,6 @@
+**/.rasa-venv
+**/dogImages
+**/models
+**/__pycache__
+**/.ipynb_checkpoints
+**/.rasa

@@ -1,0 +1,88 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: happy path 1
+  steps:
+  - user: |
+      chào bạn
+    intent: greet
+  - action: utter_greet
+  - user: |
+      bạn là ai
+    intent: bot_challenge
+  - action: utter_iamabot
+
+- story: happy path 2
+  steps:
+  - user: |
+      bắt đầu
+    intent: greet
+  - action: utter_greet
+  - user: |
+      ai đang nói chuyện đấy
+    intent: bot_challenge
+  - action: utter_iamabot
+  - user: |
+      chào bạn nhé
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: path 1
+  steps:
+  - user: |
+      bắt đầu
+    intent: greet
+  - action: utter_greet
+  - user: |
+      chó là loài gì
+    intent: ask_what_is_dog
+  - action: utter_what_is_dog
+  - user: |
+      con chó irish setter là giống gì
+    intent: ask_info_dog_breeds
+  - action: action_info_dog_breeds
+
+- story: path 2
+  steps:
+  - user: |
+      xin chào
+    intent: greet
+  - action: utter_greet
+  - user: |
+      thông tin về chó bedlington terrier
+    intent: ask_info_dog_breeds
+  - action: action_info_dog_breeds
+  - user: |
+      bye bye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: path 3
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      cho tôi biết thông tin về affenpinscher
+    intent: ask_info_dog_breeds
+  - action: action_info_dog_breeds
+  - user: |
+      kể cho tôi nghe về giống chó boykin spaniel
+    intent: ask_info_dog_breeds
+  - action: action_info_dog_breeds
+
+- story: say goodbye
+  steps:
+  - user: |
+      tôi đi đây
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      bạn là bot à
+    intent: bot_challenge
+  - action: utter_iamabot

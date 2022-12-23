@@ -1,0 +1,106 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - xin chào
+    - chào bạn
+    - chào bot
+    - bắt đầu
+
+- intent: goodbye
+  examples: |
+    - bye
+    - bye bye
+    - cảm ơn bạn
+    - cảm ơn bạn, chào bạn nhé
+    - chào bot nhé
+    - chào bạn nhé
+    - hẹn gặp lại
+    - tôi đi đây
+
+- intent: bot_challenge
+  examples: |
+    - bạn là ai
+    - tôi đang nói chuyện với ai vậy
+    - hãy cho tôi biết bạn là ai
+    - đây là đâu
+    - đây là gì
+    - bạn là gì
+    - ai đang nói chuyện đấy
+    - ai ở đầu bên kia đấy
+
+- intent: chan_doan_benh
+  examples: |
+    - chẩn đoán bệnh
+    - chuẩn đoán bệnh
+- intent: thong_tin_ve_benh
+  examples: |
+    - hỏi thông tin về bệnh
+    - thông tin về bệnh
+    - tôi muốn biết thông tin về bệnh
+- intent: thong_tin
+  examples: |
+    - thông tin bệnh [viêm loét dạ dày](benh_tieu_hoa)
+    - thông tin bệnh [táo bón](benh_tieu_hoa)
+    - thông tin bệnh [trĩ](benh_tieu_hoa)
+    - thông tin bệnh [viêm đại tràng mãn tính](benh_tieu_hoa)
+    - thông tin bệnh [sa dạ dày](benh_tieu_hoa)
+    - thông tin bệnh [nứt kẽ hậu môn](benh_tieu_hoa)
+    - thông tin bệnh [viêm túi thừa](benh_tieu_hoa)
+    - thông tin bệnh [rối loạn dạ dày](benh_tieu_hoa)
+    - thông tin bệnh [tiêu chảy](benh_tieu_hoa)
+    - thông tin bệnh [trào ngược dạ dày](benh_tieu_hoa)
+
+- intent: khai_niem
+  examples: |
+    - khái niệm bệnh [viêm loét dạ dày](benh_tieu_hoa)
+    - khái niệm bệnh [táo bón](benh_tieu_hoa)
+    - khái niệm bệnh [trĩ](benh_tieu_hoa)
+    - khái niệm bệnh [viêm đại tràng mãn tính](benh_tieu_hoa)
+    - khái niệm bệnh [sa dạ dày](benh_tieu_hoa)
+    - khái niệm bệnh [nứt kẽ hậu môn](benh_tieu_hoa)
+    - khái niệm bệnh [viêm túi thừa](benh_tieu_hoa)
+    - khái niệm bệnh [rối loạn dạ dày](benh_tieu_hoa)
+    - khái niệm bệnh [tiêu chảy](benh_tieu_hoa)
+    - khái niệm bệnh [trào ngược dạ dày](benh_tieu_hoa)
+- intent: nguyen_nhan
+  examples: |
+    - nguyên nhân bệnh [viêm loét dạ dày](benh_tieu_hoa)
+    - nguyên nhân bệnh [táo bón](benh_tieu_hoa)
+    - nguyên nhân bệnh [trĩ](benh_tieu_hoa)
+    - nguyên nhân bệnh [viêm đại tràng mãn tính](benh_tieu_hoa)
+    - nguyên nhân bệnh [sa dạ dày](benh_tieu_hoa)
+    - nguyên nhân bệnh [nứt kẽ hậu môn](benh_tieu_hoa)
+    - nguyên nhân bệnh [viêm túi thừa](benh_tieu_hoa)
+    - nguyên nhân bệnh [rối loạn dạ dày](benh_tieu_hoa)
+    - nguyên nhân bệnh [tiêu chảy](benh_tieu_hoa)
+    - nguyên nhân bệnh [trào ngược dạ dày](benh_tieu_hoa)
+
+- intent: trieu_chung
+  examples: |
+    - triệu chứng bệnh [viêm loét dạ dày](benh_tieu_hoa)
+    - triệu chứng bệnh [táo bón](benh_tieu_hoa)
+    - triệu chứng bệnh [trĩ](benh_tieu_hoa)
+    - triệu chứng bệnh [viêm đại tràng mãn tính](benh_tieu_hoa)
+    - triệu chứng bệnh [sa dạ dày](benh_tieu_hoa)
+    - triệu chứng bệnh [nứt kẽ hậu môn](benh_tieu_hoa)
+    - triệu chứng bệnh [viêm túi thừa](benh_tieu_hoa)
+    - triệu chứng bệnh [rối loạn dạ dày](benh_tieu_hoa)
+    - triệu chứng bệnh [tiêu chảy](benh_tieu_hoa)
+    - triệu chứng bệnh [trào ngược dạ dày](benh_tieu_hoa)
+ 
+- intent: phuong_phap_dieu_tri
+  examples: |
+    - phương pháp điều trị bệnh [viêm loét dạ dày](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [táo bón](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [trĩ](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [viêm đại tràng mãn tính](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [sa dạ dày](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [nứt kẽ hậu môn](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [viêm túi thừa](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [rối loạn dạ dày](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [tiêu chảy](benh_tieu_hoa)
+    - phương pháp điều trị bệnh [trào ngược dạ dày](benh_tieu_hoa)
+

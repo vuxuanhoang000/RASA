@@ -1,0 +1,7 @@
+ng: bắt đầu
+bot: tôi là bot. được phát triển bởi đội ngũ nhóm 1 lớp các hệ thống dựa trên tri thức 
+bot: tôi có thể giúp được gì cho bạn {
+	- Hỏi về thông tin về các bệnh tiêu hóa
+	- Phương pháp điều trị về bệnh cụ thể
+	- Chuẩn đoán bệnh
+}

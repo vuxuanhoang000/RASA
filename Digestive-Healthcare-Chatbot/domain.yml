@@ -1,0 +1,636 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 100
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - chan_doan_benh
+  - thong_tin_ve_benh
+  - thong_tin
+  - khai_niem
+  - nguyen_nhan
+  - trieu_chung
+  - phuong_phap_dieu_tri
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_thong_tin_ve_benh
+  - action_ask_thong_tin
+  - action_ask_khai_niem
+  - action_ask_nguyen_nhan
+  - action_ask_trieu_chung
+  - action_ask_phuong_phap_dieu_tri
+  - action_ask_slots_values
+  - utter_slots_values
+  - utter_ask_xuat_huyet_da_day
+  - utter_ask_roi_loan_tieu_hoa
+  - utter_ask_dau_dau
+  - utter_ask_non_ra_mau
+  - utter_ask_nong_rat_da_day
+  - utter_ask_dau_nhoi_xuong_suon
+  - utter_ask_dau_quanh_ron
+  - utter_ask_dau_tuc_nguc
+  - utter_ask_viem_hong
+  - utter_ask_mieng_tiet_nhieu_nuoc_bot
+  - utter_ask_sa_bui_tri
+  - utter_ask_mot_ran
+  - utter_ask_xung_quanh_hau_mon
+  - utter_ask_dau_vung_hau_mon
+  - utter_ask_chan_tay_lanh_da_kho_mat_trung
+  - utter_ask_tieu_chay
+  - utter_ask_da_san_sui_tho_rap
+  - utter_ask_dai_tien_it
+  - utter_ask_phan_cung
+  - utter_ask_dau_khi_di_dai_tien
+  - utter_ask_sot
+  - utter_ask_dau_ben_trai_bung_duoi
+  - utter_ask_an_uong_kem
+  - utter_ask_phan_dinh_mau
+  - utter_ask_dau_vung_thuong_vi
+  - utter_ask_tieu_chay_dai_tien_it_phan_cung
+  - utter_ask_mat_ngu
+  - utter_ask_buon_non
+  - utter_ask_o_hoi_o_chua
+  - validate_chan_doan_benh_form
+
+responses:
+  utter_greet:
+    - text: "Chào bạn! Tôi là trợ lý ảo được viết bởi Vũ Xuân Hoàng và Đặng Tuấn Anh.\nTôi có thể tư vấn cho bạn những gì liên quan đến bệnh tiêu hóa.\nBạn muốn hỏi tôi điều gì?"
+      buttons:
+        - title: "Chẩn đoán bệnh"
+          payload: "/chan_doan_benh"
+        - title: "Thông tin về bệnh"
+          payload: "/thong_tin_ve_benh"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_thong_tin_ve_benh:
+    - text: |-
+        ? Bạn muốn hỏi thông tin về bệnh gì
+
+        * Nếu bạn chỉ muốn biết về Khái niệm, Nguyên nhân, Triệu chứng hay Phương pháp điều trị thì hãy sử dụng cú pháp:
+        - Cái bạn muốn biết + Tên bệnh
+
+        * Ví dụ:
+        - Khái niệm bệnh trĩ
+        - Triệu chứng bệnh Viêm loét dạ dày
+
+        * Các bệnh liên quan đến đường tiêu hóa:
+        - viêm loét dạ dày
+        - táo bón
+        - trĩ
+        - viêm đại tràng mãn tính
+        - sa dạ dày
+        - nứt kẽ hậu môn
+        - viêm túi thừa
+        - rối loạn dạ dày
+        - tiêu chảy
+        - trào ngược dạ dày
+      buttons:
+        - title: "Viêm loét dạ dày"
+          payload: /thong_tin{{"benh_tieu_hoa":"viêm loét dạ dày"}}
+        - title: "Táo bón"
+          payload: /thong_tin{{"benh_tieu_hoa":"táo bón"}}
+        - title: "Bệnh trĩ"
+          payload: /thong_tin{{"benh_tieu_hoa":"trĩ"}}
+  utter_ask_xuat_huyet_da_day:
+    - text: "Bạn có bị Xuất huyết dạ dày không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_roi_loan_tieu_hoa:
+    - text: "Bạn có bị rối loạn tiêu hoá (tiêu chảy hoặc táo bón) không"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_dau:
+    - text: "Bạn có bị đau đầu không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_non_ra_mau:
+    - text: "Bạn có bị nôn ra máu không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_nong_rat_da_day:
+    - text: "Bạn có bị nóng rát dạ dày không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_nhoi_xuong_suon:
+    - text: "Bạn có bị đau nhói xương sườn không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_quanh_ron:
+    - text: "Bạn có bị đau quanh rốn không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_tuc_nguc:
+    - text: "Bạn có bị đau tức ngực không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_viem_hong:
+    - text: "Bạn có bị viêm họng không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_mieng_tiet_nhieu_nuoc_bot:
+    - text: "Miệng bạn có bị tiết nhiều nước bọt không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_sa_bui_tri:
+    - text: "Bạn có bị sa búi trĩ không? (búi trĩ lòi ra ngoài, sa xuống khu vực hậu môn mỗi khi bệnh nhân đi đại tiện hoặc khi vận động mạnh)"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_mot_ran:
+    - text: "Bạn có bị mót rặn không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_xung_quanh_hau_mon:
+    - text: "Xung quanh kẽ hậu môn của bạn có bị dày lên, cứng và các vết loét hay Hậu môn ngứa rát, ẩm ướt không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_vung_hau_mon:
+    - text: "Bạn có bị đau vùng hậu môn không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_chan_tay_lanh_da_kho_mat_trung:
+    - text: "Bạn có bị chân tay lạnh hay da khô nhăn hay mắt trũng không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_tieu_chay:
+    - text: "Bạn có bị tiêu chảy không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_da_san_sui_tho_rap:
+    - text: "Da bạn có bị sần sùi thô ráp không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dai_tien_it:
+    - text: "Bạn có bị đại tiện ít không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_phan_cung:
+    - text: "Bạn có bị phân cứng không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_khi_di_dai_tien:
+    - text: "Bạn có bị đau khi đi đại tiện không"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_sot:
+    - text: "Bạn có bị sốt không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_ben_trai_bung_duoi:
+    - text: "Bạn có bị đau bên trái bụng dưới không"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_an_uong_kem:
+    - text: "Bạn có ăn kém, chóng no không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_phan_dinh_mau:
+    - text: "Phân bạn có dính máu không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_dau_vung_thuong_vi:
+    - text: "Bạn có bị đau vùng thượng vị không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_tieu_chay_dai_tien_it_phan_cung:
+    - text: "Bạn có bị tiêu chảy hay đại tiện ít, phân cứng không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_mat_ngu:
+    - text: "Bạn có bị mất ngủ, ngủ không ngon giấc không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_buon_non:
+    - text: "Bạn có bị nôn, buồn nôn không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_met_moi_suy_nhuoc:
+    - text: "Cơ thể bạn có mệt mỏi, suy nhược không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_ask_o_hoi_o_chua:
+    - text: "Bạn có bị ợ hơi, ợ chua không?"
+      buttons:
+        - title: "Có"
+          payload: "có"
+        - title: "Không"
+          payload: "không"
+  utter_slots_values:
+    - text: |-
+        Chẩn đoán: bệnh {benh}
+        Độ tương đồng: {s}% 
+      buttons:
+        - title: "Thông tin"
+          payload: /thong_tin{{"benh_tieu_hoa":"{benh}"}}
+
+forms:
+  chan_doan_benh_form:
+    required_slots:
+      - xuat_huyet_da_day
+      - roi_loan_tieu_hoa
+      - dau_dau
+      - non_ra_mau
+      - nong_rat_da_day
+      - dau_nhoi_xuong_suon
+      - dau_quanh_ron
+      - dau_tuc_nguc
+      - viem_hong
+      - mieng_tiet_nhieu_nuoc_bot
+      - sa_bui_tri
+      - mot_ran
+      - xung_quanh_hau_mon
+      - dau_vung_hau_mon
+      - chan_tay_lanh_da_kho_mat_trung
+      - tieu_chay
+      - da_san_sui_tho_rap
+      - dai_tien_it
+      - phan_cung
+      - dau_khi_di_dai_tien
+      - sot
+      - dau_ben_trai_bung_duoi
+      - an_uong_kem
+      - phan_dinh_mau
+      - dau_vung_thuong_vi
+      - tieu_chay_dai_tien_it_phan_cung
+      - mat_ngu
+      - buon_non
+      - met_moi_suy_nhuoc
+      - o_hoi_o_chua
+
+entities:
+  - benh_tieu_hoa
+
+slots:
+  benh_tieu_hoa:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: benh_tieu_hoa
+
+  xuat_huyet_da_day:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: xuat_huyet_da_day
+
+  roi_loan_tieu_hoa:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: roi_loan_tieu_hoa
+
+  dau_dau:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_dau
+
+  non_ra_mau:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: non_ra_mau
+
+  nong_rat_da_day:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: nong_rat_da_day
+
+  dau_nhoi_xuong_suon:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_nhoi_xuong_suon
+
+  dau_quanh_ron:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_quanh_ron
+
+  dau_tuc_nguc:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_tuc_nguc
+
+  viem_hong:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: viem_hong
+
+  mieng_tiet_nhieu_nuoc_bot:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: mieng_tiet_nhieu_nuoc_bot
+
+  sa_bui_tri:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: sa_bui_tri
+
+  mot_ran:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: mot_ran
+
+  xung_quanh_hau_mon:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: xung_quanh_hau_mon
+
+  dau_vung_hau_mon:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_vung_hau_mon
+
+  chan_tay_lanh_da_kho_mat_trung:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: chan_tay_lanh_da_kho_mat_trung
+
+  tieu_chay:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: tieu_chay
+
+  da_san_sui_tho_rap:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: da_san_sui_tho_rap
+
+  dai_tien_it:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dai_tien_it
+
+  phan_cung:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: phan_cung
+
+  dau_khi_di_dai_tien:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_khi_di_dai_tien
+
+  sot:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: sot
+
+  dau_ben_trai_bung_duoi:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_ben_trai_bung_duoi
+
+  an_uong_kem:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: an_uong_kem
+
+  phan_dinh_mau:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: phan_dinh_mau
+
+  dau_vung_thuong_vi:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: dau_vung_thuong_vi
+
+  tieu_chay_dai_tien_it_phan_cung:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: tieu_chay_dai_tien_it_phan_cung
+
+  mat_ngu:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: mat_ngu
+
+  buon_non:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: buon_non
+
+  met_moi_suy_nhuoc:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: met_moi_suy_nhuoc
+
+  o_hoi_o_chua:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: chan_doan_benh_form
+            requested_slot: o_hoi_o_chua

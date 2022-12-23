@@ -1,0 +1,38 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - ask_random
+  - ask_what_is_dog
+  - ask_info_dog_breeds
+entities:
+  - dog_breed
+
+responses:
+  utter_greet:
+  - text: "Chào bạn! Tôi là bot nhận diện các giống chó. Hãy gửi cho tôi những bức ảnh về loài chó hoặc hỏi tôi thông tin về giống chó mà bạn muốn tìm."
+
+  utter_goodbye:
+  - text: "Bot chào bạn. Hẹn gặp lại bạn vào lần tới!"
+
+  utter_iamabot:
+  - text: "Tôi là Bot nhận diện các giống chó được viết bởi Vũ Xuân Hoàng (https://www.facebook.com/vuxuanhoang.2001/) và Đặng Tuấn Anh (https://www.facebook.com/shuyn203)."
+
+  utter_what_is_dog:
+  - text: "Chó, là một loài động vật thuộc chi Chó, tạo nên một phần tiến hóa của sói, đồng thời là loài động vật ăn thịt trên cạn có số lượng lớn nhất.\nChiều cao: 15 – 110 cm (Chiều cao tính từ vai)\nTuổi thọ: 10 – 13 năm\nThời gian mang thai: 58 – 68 ngày\nSố giờ ngủ hàng ngày: 12 – 14 giờ (Trưởng thành)\nTên khoa học: Canis lupus familiaris"
+    image: "https://imgur.com/AQtgw8Y"
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_what_is_dog
+  - action_info_dog_breeds
+  - action_random
