@@ -165,19 +165,19 @@ class ActionAskSlotsValues(Action):
     ) -> List[Dict[Text, Any]]:
         user_symptons = {k: v for k, v in tracker.slots.items() if k in USER_SYMPTONS}
         if self.Tat_Ca_Trieu_Chung_Deu_Binh_Thuong(user_symptons):
-            dispatcher.utter_message("Chúc mừng bạn! Bạn hoàn toàn không bị bệnh gì cả")
+            dispatcher.utter_message("Chúc mừng bạn! Bạn hoàn toàn không bị bệnh gì cả 😁")
         else:
             best_match = self.best_match(user_symptons)
             ten_benh, du_doan = self.find_benh(user_symptons, best_match)
             if du_doan >= 0.9:
-                dispatcher.utter_message(f"Bạn chắc chắn bị {ten_benh}")
+                dispatcher.utter_message(f"Bạn chắc chắn bị {ten_benh}.😱")
             elif du_doan >= 0.8:
-                dispatcher.utter_message(f"Bạn tỷ lệ cao bị {ten_benh}")
+                dispatcher.utter_message(f"Bạn tỷ lệ cao bị {ten_benh}.😨")
             elif du_doan >= 0.5:
-                dispatcher.utter_message(f"Bot nghi ngờ bạn bị {ten_benh}")
+                dispatcher.utter_message(f"Bot nghi ngờ bạn bị {ten_benh}.🤔")
             else:
                 dispatcher.utter_message(
-                    f"Bot chưa thể xác định được bệnh mà bạn gặp phải.\nBạn cần theo dõi thêm các triệu chứng để Bot có thể xác định bệnh đúng hơn"
+                    f"Xin lỗi 😞! Bot chưa thể xác định được bệnh mà bạn gặp phải.\nBạn cần theo dõi thêm các triệu chứng để Bot có thể xác định bệnh đúng hơn"
                 )
         return [SlotSet(k, None) for k, v in tracker.slots.items()]
 
