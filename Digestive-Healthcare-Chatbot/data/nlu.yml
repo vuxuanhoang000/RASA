@@ -43,6 +43,8 @@ nlu:
       - tôi bị đau
       - tôi cảm thấy đau
       - tôi bị sốt
+      - tôi bị đi ngoài
+      - tôi bị đau dạ dày
       - tôi cảm thấy rất khó chịu
       - tôi cảm thấy khó chịu
       - mình cảm thấy hơi khó chịu
@@ -51,6 +53,11 @@ nlu:
       - dự đoán bệnh
       - dự đoán bệnh cho tôi
       - dự đoán bệnh của tôi
+      - tôi cần tư vấn
+      - tư vấn cho tôi
+      - tôi muốn bạn tư vấn cho tôi
+      - hãy tư vấn cho tôi
+
   - intent: thong_tin_ve_benh
     examples: |
       - hỏi thông tin về bệnh
