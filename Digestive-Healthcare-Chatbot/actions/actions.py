@@ -171,12 +171,30 @@ class ActionAskSlotsValues(Action):
         else:
             best_match = self.best_match(user_symptons)
             ten_benh, du_doan = self.find_benh(user_symptons, best_match)
+            buttons = [
+                {
+                    "title": "Thông tin",
+                    "payload": '/thong_tin{{"benh_tieu_hoa":"' + ten_benh + '"}}',
+                },
+                {
+                    "title": "Cách chữa",
+                    "payload": '/phuong_phap_dieu_tri{{"benh_tieu_hoa":"'
+                    + ten_benh
+                    + '"}}',
+                },
+            ]
             if du_doan >= 0.9:
-                dispatcher.utter_message(f"Bạn chắc chắn bị {ten_benh}.😱")
+                dispatcher.utter_message(
+                    f"Bạn chắc chắn bị {ten_benh}.😱", buttons=buttons
+                )
             elif du_doan >= 0.8:
-                dispatcher.utter_message(f"Bạn tỷ lệ cao bị {ten_benh}.😨")
+                dispatcher.utter_message(
+                    f"Bạn tỷ lệ cao bị {ten_benh}.😨", buttons=buttons
+                )
             elif du_doan >= 0.5:
-                dispatcher.utter_message(f"Bot nghi ngờ bạn bị {ten_benh}.🤔")
+                dispatcher.utter_message(
+                    f"Bot nghi ngờ bạn bị {ten_benh}.🤔", buttons=buttons
+                )
             else:
                 dispatcher.utter_message(
                     f"Xin lỗi 😞! Bot chưa thể xác định được bệnh mà bạn gặp phải.\nBạn cần theo dõi thêm các triệu chứng để Bot có thể xác định bệnh đúng hơn"
@@ -308,8 +326,12 @@ class ValidateChanDoanBenhForm(FormValidationAction):
                         res[code] = i
             else:
                 dispatcher.utter_message(
-                    "Tôi không hiểu bạn đang nói gì?\nBạn có thể nói rõ hơn tình trạng bạn đang gặp phải được không?"
+                    f"Xin lỗi😓! Triệu chứng mà bạn vừa nhập hiện không có trong hệ thống.\nHệ thống của tôi sẽ cập nhập thông tin về triệu chứng này trong thời gian sớm nhất.👍"
                 )
+                with open(
+                    "digestive_data/trieu_chung_moi.txt", "a+", encoding="utf8"
+                ) as f:
+                    f.write(user_message + "\n")
         return res
 
     @staticmethod
