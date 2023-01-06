@@ -200,14 +200,14 @@ class ActionAskSlotsValues(Action):
                     s += weight * dict_do_tuong_dong[user_symptons[code]][sympton[code]]
                 else:
                     count = 0
-                    tmp = 0
+                    s2 = 0
                     try:
                         for i in user_symptons[code].split():
-                            tmp += dict_do_tuong_dong[i][sympton[code]]
+                            s2 += dict_do_tuong_dong[i][sympton[code]]
                             count += 1
                     except:
                         pass
-                    s += weight * (tmp / count)
+                    s += weight * (s2 / count)
             tmp.append((sympton["benh"], s / sum(WEIGHT_SYMPTONS)))
         tmp.sort(key=lambda x: x[1], reverse=True)
         return tmp[0]
