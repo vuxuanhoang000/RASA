@@ -7,7 +7,6 @@
     rasa train
 ```
 ### Run Project
-
     - terminal thứ nhất 
 ``` rasa run actions ```
     - terminal thứ hai 
