@@ -8,6 +8,10 @@
 ```
 ### Run Project
     - terminal thứ nhất 
-``` rasa run actions ```
+``` 
+    rasa run actions 
+```
     - terminal thứ hai 
-``` rasa shell ```
+``` 
+    rasa shell 
+```
