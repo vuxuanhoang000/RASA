@@ -7,11 +7,11 @@
     rasa train
 ```
 ### Run Project
-    - terminal thứ nhất 
+- terminal thứ nhất 
 ``` 
     rasa run actions 
 ```
-    - terminal thứ hai 
+- terminal thứ hai 
 ``` 
     rasa shell 
 ```
