@@ -8,5 +8,6 @@
         "**/.rasa-venv": true,
     },
     "python.formatting.provider": "black",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "prettier.tabWidth": 2
 }
