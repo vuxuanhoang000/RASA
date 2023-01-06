@@ -165,7 +165,9 @@ class ActionAskSlotsValues(Action):
     ) -> List[Dict[Text, Any]]:
         user_symptons = {k: v for k, v in tracker.slots.items() if k in USER_SYMPTONS}
         if self.Tat_Ca_Trieu_Chung_Deu_Binh_Thuong(user_symptons):
-            dispatcher.utter_message("Chúc mừng bạn! Bạn hoàn toàn không bị bệnh gì cả 😁")
+            dispatcher.utter_message(
+                "Chúc mừng bạn! Bạn hoàn toàn không bị bệnh gì cả 😁"
+            )
         else:
             best_match = self.best_match(user_symptons)
             ten_benh, du_doan = self.find_benh(user_symptons, best_match)
@@ -194,8 +196,18 @@ class ActionAskSlotsValues(Action):
         for sympton in best_match:
             s = 0.0
             for code, weight in zip(USER_SYMPTONS, WEIGHT_SYMPTONS):
-                s += weight * dict_do_tuong_dong[user_symptons[code]][sympton[code]]
-
+                if user_symptons[code] in dict_do_tuong_dong:
+                    s += weight * dict_do_tuong_dong[user_symptons[code]][sympton[code]]
+                else:
+                    count = 0
+                    tmp = 0
+                    try:
+                        for i in user_symptons[code].split():
+                            tmp += dict_do_tuong_dong[i][sympton[code]]
+                            count += 1
+                    except:
+                        pass
+                    s += weight * (tmp / count)
             tmp.append((sympton["benh"], s / sum(WEIGHT_SYMPTONS)))
         tmp.sort(key=lambda x: x[1], reverse=True)
         return tmp[0]
