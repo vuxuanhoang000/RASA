@@ -174,13 +174,13 @@ class ActionAskSlotsValues(Action):
             buttons = [
                 {
                     "title": "Thông tin",
-                    "payload": '/thong_tin{{"benh_tieu_hoa":"' + ten_benh + '"}}',
+                    "payload": '/thong_tin{"benh_tieu_hoa":"' + ten_benh + '"}',
                 },
                 {
                     "title": "Cách chữa",
-                    "payload": '/phuong_phap_dieu_tri{{"benh_tieu_hoa":"'
+                    "payload": '/phuong_phap_dieu_tri{"benh_tieu_hoa":"'
                     + ten_benh
-                    + '"}}',
+                    + '"}',
                 },
             ]
             if du_doan >= 0.9:
