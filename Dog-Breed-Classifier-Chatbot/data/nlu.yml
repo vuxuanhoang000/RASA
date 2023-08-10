@@ -1,0 +1,506 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - xin chào
+    - chào bạn
+    - chào bot
+    - bắt đầu
+
+- intent: goodbye
+  examples: |
+    - bye
+    - bye bye
+    - cảm ơn bạn, chào bạn nhé
+    - chào bạn nhé
+    - chào bạn nhé
+    - hẹn gặp lại
+    - tôi đi đây
+
+- intent: bot_challenge
+  examples: |
+    - bạn là ai
+    - tôi đang nói chuyện với ai vậy
+    - hãy cho tôi biết bạn là ai
+    - đây là đâu
+    - đây là gì
+    - bạn là gì
+    - ai đang nói chuyện đấy
+    - ai ở đầu bên kia đấy
+
+- intent: ask_what_is_dog
+  examples: |
+    - chó là gì
+    - chó là loài gì
+    - hãy cho tôi biết những gì về chó
+    - chó là động vật gì
+    - cho tôi biết về loài chó 
+    - cho tôi biết về chó
+    - bạn hãy nói về chó đi
+    - bạn hãy cho tôi biết những thông tin liên quan đến loài chó
+    - bạn hãy cho tôi biết thông tin liên quan đến loài chó
+    - hãy cho tôi biết những thông tin liên quan đến loài chó
+    - hãy cho tôi biết thông tin liên quan đến loài chó
+    - hãy cho tôi biết những gì liên quan đến loài chó
+    - bạn biết gì về loài chó
+    - bạn biết những gì về loài chó
+    - bạn biết gì về chó
+    - bạn biết chó là gì không
+    - bạn biết chó là loài động vật gì không
+    - chó là cái gì
+    - nói về chó 
+    - nói về loài chó 
+    - cho tôi biết những thông tin liên quan đến loài chó
+    - cho tôi biết những thông tin liên quan đến loài chó
+    - cho tôi biết những gì liên quan đến loài chó
+    - kể cho tôi nghe về chó
+    - hãy kể cho tôi nghe về chó
+    - cho tôi biết những gì bạn biết về chó
+    - kể cho tôi những thông tin về chó
+    - kể cho tôi những thông tin liên quan đến chó
+    - kể cho tôi nghe thông tin liên quan đến chó
+    - bạn biết gì về chó
+    - kể cho tôi về loài chó
+    - kể cho tôi về chó
+- intent: ask_random
+  examples: |
+    - cho tôi thông tin về một giống chó ngẫu nhiên
+    - thông tin về một giống chó nào đó
+    - thông tin về một giống chó bất kì
+    - cho tôi thông tin về một giống chó bất kì
+- intent: ask_info_dog_breeds
+  examples: |
+    - chó [old english sheepdog]{"entity":"dog_breed"} là giống gì
+    - chó [american staffordshire terrier]{"entity":"dog_breed"} là gì
+    - chó [american water spaniel]{"entity":"dog_breed"} là loài gì
+    - chó [chihuahua]{"entity":"dog_breed"} là loại gì
+    - chó [flat-coated retriever]{"entity":"dog_breed"} là giống chó gì
+    - loài chó [english springer spaniel]{"entity":"dog_breed"} là giống gì
+    - loài chó [dogue de bordeaux]{"entity":"dog_breed"} là gì
+    - loài chó [labrador retriever]{"entity":"dog_breed"} là loại gì
+    - loài chó [italian greyhound]{"entity":"dog_breed"} là giống chó gì
+    - con chó [irish setter]{"entity":"dog_breed"} là giống gì
+    - con chó [field spaniel]{"entity":"dog_breed"} là gì
+    - con chó [irish red and white setter]{"entity":"dog_breed"} là loài gì
+    - con chó [khỉ]{"entity":"dog_breed"} là giống chó gì
+    - cho tôi biết thông tin về loài chó [black russian terrier]{"entity":"dog_breed"}
+    - cho tôi biết thông tin về giống chó [welsh springer spaniel]{"entity":"dog_breed"}
+    - cho tôi biết thông tin về loại chó [xoloitzcuintli]{"entity":"dog_breed"}
+    - cho tôi biết thông tin về chó [alaskan malamute]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của loài chó [chinese shar-pei]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của giống chó [komondor]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của loại chó [greyhound]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của chó [bulldog]{"entity":"dog_breed"}
+    - kể cho tôi nghe về giống chó [afghan hound]{"entity":"dog_breed"}
+    - kể cho tôi nghe về chó [english toy spaniel]{"entity":"dog_breed"}
+    - bạn biết gì về chó [dachshund]{"entity":"dog_breed"}
+    - thông tin về chó [poodle]{"entity":"dog_breed"}
+    - bạn có biết về chó [anatolian shepherd dog]{"entity":"dog_breed"} không
+    - bạn có biết giống chó [manchester terrier]{"entity":"dog_breed"} không
+    - bạn có biết loại chó [bedlington terrier]{"entity":"dog_breed"} không
+    - [australian cattle dog]{"entity":"dog_breed"} là giống gì
+    - [plott]{"entity":"dog_breed"} là gì
+    - [beauceron]{"entity":"dog_breed"} là loài gì
+    - [golden retriever]{"entity":"dog_breed"} là loại gì
+    - [chow chow]{"entity":"dog_breed"} là giống chó gì
+    - loài [curly-coated retriever]{"entity":"dog_breed"} là giống gì
+    - loài [boykin spaniel]{"entity":"dog_breed"} là gì
+    - loài [phốc khỉ]{"entity":"dog_breed"} là loại gì
+    - loài [bearded collie]{"entity":"dog_breed"} là giống chó gì
+    - con [irish water spaniel]{"entity":"dog_breed"} là giống gì
+    - con [french bulldog]{"entity":"dog_breed"} là gì
+    - con [akita nhật]{"entity":"dog_breed"} là loài gì
+    - con [curly-coated retriever]{"entity":"dog_breed"} là giống chó gì
+    - cho tôi biết thông tin về loài [ibizan hound]{"entity":"dog_breed"}
+    - cho tôi biết thông tin về giống [pomeranian]{"entity":"dog_breed"}
+    - cho tôi biết thông tin về loại [pomeranian]{"entity":"dog_breed"}
+    - cho tôi biết thông tin về [tibetan mastiff]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của loài [affenpinscher]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của giống [great pyrenees]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của loại [mastiff]{"entity":"dog_breed"}
+    - cho tôi biết thông tin của [neapolitan mastiff]{"entity":"dog_breed"}
+    - kể cho tôi nghe về giống [havanese]{"entity":"dog_breed"}
+    - kể cho tôi nghe về [english toy spaniel]{"entity":"dog_breed"}
+    - bạn biết gì về [belgian sheepdog]{"entity":"dog_breed"}
+    - thông tin về [bernese mountain dog]{"entity":"dog_breed"}
+    - bạn có biết về [flat-coated retriever]{"entity":"dog_breed"} không
+    - bạn có biết giống [entlebucher mountain dog]{"entity":"dog_breed"} không
+    - bạn có biết loại [petit basset griffon vendeen]{"entity":"dog_breed"} không
+    - bạn biết gì về giống chó [black and tan coonhound]{"entity":"dog_breed"}
+    - cho tôi thông tin về loài chó [black and tan coonhound]{"entity":"dog_breed"}
+    - thông tin giống chó [cavalier king charles spaniel]{"entity":"dog_breed"}
+    - loài [nova scotia duck tolling retriever]{"entity":"dog_breed"}
+    - chó [nova scotia duck tolling retriever]{"entity":"dog_breed"}
+    - thông tin giống chó [greater swiss mountain dog]{"entity":"dog_breed"}
+- lookup: dog_breed
+  examples: |
+    - affenpinscher
+    - khỉ
+    - phốc khỉ
+    - afghan hound
+    - săn afghan
+    - airedale terrier
+    - sục airedale
+    - sục waterside
+    - sục bingley
+    - akita
+    - akita inu
+    - akita ken
+    - akita nhật
+    - akita mỹ
+    - đại khuyển nhật bản
+    - alaskan malamute
+    - alaska
+    - mahlemuts
+    - american eskimo
+    - eskimo mỹ
+    - eskimo spitz
+    - american spitz
+    - german spitz
+    - american foxhound
+    - săn cáo mỹ
+    - american staffordshire terrier
+    - staff
+    - american water spaniel
+    - lội nước spaniel hoa kỳ
+    - spaniel nâu hoa kỳ
+    - lội nước spaniel nâu hoa kỳ
+    - anatolian shepherd
+    - chăn cừu anatoli
+    - karabas
+    - kangal
+    - australian cattle
+    - chăn bò úc
+    - aussie
+    - lam nhỏ
+    - acd
+    - chăn gia súc
+    - heeler lam
+    - heeler đỏ
+    - queensland heeler
+    - australian shepherd
+    - chăn cừu úc
+    - australian terrier
+    - basenji
+    - bụi rậm châu phi
+    - ango angari
+    - congo
+    - zande
+    - basset hound
+    - săn chân lùn
+    - beagle
+    - săn thỏ
+    - săn thỏ anh
+    - bearded collie
+    - chăn cừu râu dài
+    - beardie
+    - collie cao nguyên
+    - collie núi
+    - hairy mou'ed collie
+    - beauceron
+    - berger de beauce
+    - bas rouge
+    - bedlington terrier
+    - sục bedlington
+    - sục rothbury
+    - sục rodbery
+    - cừu non rothbury
+    - belgian malinois
+    - malinois
+    - chien de berger belge
+    - mechelaar
+    - mechelse herder
+    - mechelse scheper
+    - pastor belga malinois
+    - belgian sheepdog
+    - chăn cừu bỉ
+    - belgian sheepdog
+    - chien de berger belge
+    - belgian tervuren
+    - chăn cừu tervugren
+    - tervueren bỉ
+    - chien de berger belge
+    - bernese mountain dog
+    - núi bernese
+    - berner sennenhund
+    - chăn gia súc bernese
+    - bichon frise
+    - đùi cong
+    - bichón tenerife
+    - bichon à poil frisé
+    - black and tan coonhound
+    - săn gấu mèo nâu đen
+    - black russian terrier
+    - sục nga đen,sục đen
+    - sục tchiorny
+    - chornyi
+    - gấu schnauzer nga
+    - bloodhound
+    - đánh hơi
+    - bluetick coonhound
+    - săn gấu mèo lam
+    - border collie
+    - chăn cừu border collie
+    - border terrier
+    - sục border
+    - borzoi
+    - barzoï
+    - săn cáo nga
+    - russkaya psovaya borzaya
+    - psovoi
+    - boston terrier
+    - sục boston
+    - bò mộng boston
+    - sục bun boston bull
+    - boxwood
+    - quý ông mỹ
+    - bouvier des flandres
+    - săn gia súc flanders
+    - vlaamse koehond
+    - boxer
+    - võ sĩ
+    - boykin spaniel
+    - boykin
+    - swamp poodle
+    - little brown
+    - briard
+    - berger de brie
+    - chăn cừu briard
+    - brittany
+    - american brittany
+    - brittany spaniel
+    - brittany wiegref
+    - epagneul breton
+    - brussels griffon
+    - brussels griffon
+    - belgium griffon
+    - petit brabançon
+    - griffon belge
+    - brabançon griffon
+    - bull terrier
+    - sục bò
+    - bully
+    - đấu sĩ
+    - bulldog
+    - bull
+    - bò anh
+    - bullmastiff
+    - ngao bò
+    - cairn terrier
+    - sục cairn
+    - canaan
+    - cane corso
+    - ngao ý
+    - cardigan welsh corgi
+    - corgi wales
+    - corgi
+    - cavalier king charles spaniel
+    - cav
+    - cavalier
+    - cavie
+    - chesapeake bay retriever
+    - săn vùng vhinh chesapeake
+    - chessie
+    - cbr
+    - chesapeake
+    - chihuahua
+    - chihuahueño
+    - chinese crested
+    - có mào
+    - quán mao
+    - chinese shar-pei
+    - sa bì
+    - chow chow
+    - chow
+    - chowdren
+    - clumber spaniel
+    - cocker spaniel
+    - american cocker spaniel
+    - english cocker spaniel
+    - collie
+    - border collie
+    - curly-coated retriever
+    - dachshund
+    - lạp xưởng
+    - tacken
+    - xúc xích
+    - dalmatian
+    - đốm
+    - dandie dinmont terrier
+    - dandie
+    - chó sục hindlee
+    - doberman pinscher
+    - doberman pinscher
+    - doberman
+    - dogue de bordeaux
+    - ngao bordeaux
+    - ngao pháp
+    - bordeauxdog
+    - english cocker spaniel
+    - american cocker spaniel
+    - english cocker spaniel
+    - english setter
+    - lawerack
+    - laverack
+    - llewellin setter
+    - english springer spaniel
+    - english toy spaniel
+    - king charles spaniel
+    - entlebucher mountain
+    - núi entlebucher
+    - chăn gia súc entlebucher
+    - field spaniel
+    - finnish spitz
+    - săn phần lan,finnish spets
+    - finsk spets
+    - loulou finois
+    - suomalainen pystykorva
+    - suomenpystykorva
+    - flat-coated retriever
+    - retriever lông nhẵn
+    - french bulldog
+    - bò pháp
+    - bouledogue français
+    - german pinscher
+    - german shepherd
+    - chăn cừu đức
+    - alsace
+    - alsatian
+    - alsation wolf dog
+    - berger allemand
+    - deutscher schäferhund
+    - german shepherd
+    - schäferhund,
+    - german shorthaired pointer
+    - săn lông ngắn đức
+    - german wirehaired pointer
+    - chăn cừu lông dài
+    - giant schnauzer
+    - glen of imaal terrier
+    - golden retriever
+    - săn lông vàng
+    - tha mồi
+    - gordon setter
+    - setter nâu đen
+    - great dane
+    - great pyrenees
+    - núi pyrenees
+    - gấu
+    - greater swiss mountain dog
+    - lớn vùng thụy sĩ
+    - greyhound
+    - greyhound anh
+    - havanese
+    - bichon havana cuba
+    - bichon havanês
+    - havaneser
+    - havanezer
+    - bichon habanero
+    - ibizan hound
+    - săn ibizan
+    - icelandic sheepdog
+    - chăn cừu iceland
+    - irish red and white setter
+    - setter đỏ trắng
+    - irish setter
+    - setter
+    - irish terrier
+    - sục ireland
+    - irish water spaniel
+    - nước ireland
+    - irish wolfhound
+    - săn sói ireland
+    - italian greyhound
+    - săn xám ý
+    - japanese chin
+    - nhật
+    - keeshond
+    - kerry blue terrier
+    - sục xanh kerry
+    - sục xanh ireland
+    - komondor
+    - giẻ lau
+    - kuvasz
+    - hungarian kuvasz
+    - labrador retriever
+    - lab
+    - lakeland terrier
+    - lakies
+    - leonberger
+    - sư tử đức
+    - lhasa apso
+    - lowchen
+    - sư tử nhỏ
+    - little lion
+    - petit chien lion
+    - maltese
+    - mal
+    - manchester terrier
+    - manchester
+    - mastiff
+    - ngao anh
+    - miniature schnauzer
+    - schnauzer
+    - neapolitan mastiff
+    - ngao neopolitan
+    - newfoundland
+    - new-fun-land
+    - norfolk terrier
+    - sục norfolk
+    - norwegian buhund
+    - buhund na uy
+    - norwegian elkhound
+    - săn hươu na uy
+    - norwegian lundehund
+    - sáu ngón chân lundehund
+    - lundehund nauy
+    - norwich terrier
+    - sục na uy
+    - nova scotia duck tolling retriever
+    - săn vị trời canada
+    - old english sheepdog
+    - đuôi cộc
+    - otterhound
+    - săn rái cá
+    - papillon
+    - bướm
+    - parson russell terrier
+    - sục parson russell
+    - pekingese
+    - sư tử
+    - phúc cẩu
+    - pembroke welsh corgi
+    - corgi xứ wales
+    - petit basset griffon vendeen
+    - pbgv
+    - basset griffon francais
+    - pharaoh hound
+    - săn ai cập
+    - plott
+    - plott hound
+    - pointer
+    - chỉ điểm anh quốc
+    - pomeranian
+    - phốc sóc
+    - poodle
+    - săn vịt
+    - portuguese water
+    - săn lội nước
+    - saint bernard
+    - st. bernard
+    - silky terrier
+    - australian silky terrier
+    - smooth fox terrier
+    - sục cáo
+    - tibetan mastiff
+    - ngao tạng
+    - welsh springer spaniel
+    - spaniel
+    - wirehaired pointing griffon
+    - krothals griffon
+    - xoloitzcuintli
+    - xolo
+    - yorkshire terrier
+    - yorshire

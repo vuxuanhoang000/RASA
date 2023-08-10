@@ -1,0 +1,55 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_what_is_dog
+  - action: utter_what_is_dog
+  - intent: ask_info_dog_breeds
+    entities:
+      - dog_breed: flat-coated retriever
+  - action: action_info_dog_breeds
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: path 2
+  steps:
+  - intent: ask_what_is_dog
+  - action: utter_what_is_dog
+  - intent: ask_info_dog_breeds
+    entities:
+      - dog_breed: borzoi
+  - action: action_info_dog_breeds
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: path 3
+  steps:
+  - intent: ask_what_is_dog
+  - action: utter_what_is_dog
+  - intent: ask_info_dog_breeds
+    entities:
+      - dog_breed: dalmatian
+  - action: action_info_dog_breeds
+
+- story: path 4
+  steps:
+  - intent: ask_what_is_dog
+  - action: utter_what_is_dog
+
+- story: path 5
+  steps:
+  - intent: ask_info_dog_breeds
+    entities:
+      - dog_breed: greater swiss mountain dog
+  - action: action_info_dog_breeds
